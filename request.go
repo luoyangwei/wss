@@ -20,29 +20,28 @@ type IRequester interface {
 }
 
 type Request struct {
-	headers map[string]string
-	body    io.ReadCloser
-}
+	body io.ReadCloser
 
-func (r *Request) GetParameterByName(name string) string {
-	return ""
+	headers map[string]string
 }
 
 func (r *Request) GetHeaders() map[string]string {
-	return nil
+	return r.headers
 }
 
 func (r *Request) GetHeaderByName(name string) string {
-	return ""
+	return r.headers[name]
 }
 
 func (r *Request) GetBody() []byte {
-	return nil
+	bytesBody, _ := io.ReadAll(r.body)
+	return bytesBody
 }
+
 func (r *Request) GetParameters() map[string]string {
 	return nil
 }
 
-func (r *Request) funcGetParameterByName(name string) string {
+func (r *Request) GetParameterByName(name string) string {
 	return ""
 }

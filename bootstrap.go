@@ -17,7 +17,7 @@ type Bootstrap struct {
 	reusedBody bool
 }
 
-type BootstrapOptions struct {
+type Options struct {
 	// Addr eg :8080
 	Addr string
 
@@ -25,7 +25,7 @@ type BootstrapOptions struct {
 	ReusedBody bool
 }
 
-func New(opt *BootstrapOptions) *Bootstrap {
+func New(opt *Options) *Bootstrap {
 	return &Bootstrap{
 		reusedBody: opt.ReusedBody,
 	}
